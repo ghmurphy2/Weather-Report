@@ -18,9 +18,21 @@ const displayKey=  [];
 const submitBtnEl = document.querySelector('submit')
 // add listner to submit button
 submitBtnEl.addEventListener('click', locationQuery);
-
-function LocationQuery(){
+var weatherApiKey = "7a2db2f596eb6b607d917c5d588554f0";
+var apiAddress = //not necessary?
+function locationQuery(){
     // consult api with name
+        let lat, lon
+        url = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + weatherApiKey;
+        fetch(url).then(response => response.json()).then(function(data) {
+            lat = data[0].lat;
+            lon = data[0].lon;
+            populateCurrentWeatherTitle(data[0].name + ", " + data[0].country);
+            getOneCallData(lat, lon);
+            console.log("lat")
+            // check return
+        });
+        return {"lat": lat, "lon":lon};
 }
 
 function weatherQuery(){
