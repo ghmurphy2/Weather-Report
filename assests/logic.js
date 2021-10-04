@@ -15,7 +15,14 @@ const cityLocation = document.querySelector('city-location');
 const timeCurrent = document.querySelector('time-current');
 const fiveDayForecast = [];
 const displayKey=  [];
+const submitBtnEl = document.querySelector('submit')
 // add listner to submit button
-userFormEl.addEventListener('submit', formSubmitHandler);
-languageButtonsEl.addEventListener('click', buttonClickHandler);
+submitBtnEl.addEventListener('click', locationQuery);
 
+function LocationQuery(){
+    // consult api with name
+}
+
+function weatherQuery(){
+    // consult weather api with location
+}
