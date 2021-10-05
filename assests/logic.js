@@ -21,12 +21,12 @@ $('#search-weather-btn').on('click', function(e){
     console.log("click")
     let city = $("#city-name").val();
     console.log(`city:${city}`)
-    searchWeather(city)
-    addWeatherData(city)
+    searchWeather(
+    addWeatherData(temp))
 })
 
 function addWeatherData(temp, humidity, windspeed, uvi){
-    document.currentTemp.innerHtml = currentTemp;
+    currentTemp.append("temp");
     currentHumidity.innerHtml(humidity);
     $("#current-wind-speed").innerHtml(windspeed + " mph");
     $("#current-uvi").innerHtml(uvi);
