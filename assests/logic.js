@@ -8,33 +8,34 @@
 // second page for five day? display current and options page one, five on next page after click
 // max five bars for queries
 // style
-
-const cityName = document.querySelector('city-name');
-const cityLocation = document.querySelector('city-location');
 // name to location, push location to local
+$(document).ready(function(){
 const timeCurrent = document.querySelector('time-current');
-const fiveDayForecast = [];
-const displayKey=  [];
-const submitBtnEl = document.querySelector('submit')
+const submitBtnEl = document.querySelector('#search-weather-btn')
 // add listner to submit button
-submitBtnEl.addEventListener('click', locationQuery);
 var weatherApiKey = "7a2db2f596eb6b607d917c5d588554f0";
 var apiAddress = //not necessary?
-function locationQuery(){
-    // consult api with name
-        let lat, lon
-        url = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + weatherApiKey;
-        fetch(url).then(response => response.json()).then(function(data) {
-            lat = data[0].lat;
-            lon = data[0].lon;
-            populateCurrentWeatherTitle(data[0].name + ", " + data[0].country);
-            getOneCallData(lat, lon);
-            console.log("lat")
+console.log('hello')
+
+$('#search-weather-btn').on('click', function(){
+    console.log("click")
+    let city = $("#city-name").val();
+    console.log(`city:${city}`)
+    searchWeather(city)
+})
+
+function searchWeather(city){
+    // consult api with name   
+    let queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7a2db2f596eb6b607d917c5d588554f0&units=imperial`
+        fetch(queryUrl).then(response => response.json()).then(function(data) {
+            console.log(data)
             // check return
         });
-        return {"lat": lat, "lon":lon};
+        
 }
 
 function weatherQuery(){
     // consult weather api with location
 }
+
+});
