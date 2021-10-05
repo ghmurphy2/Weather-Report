@@ -23,7 +23,17 @@ $('#search-weather-btn').on('click', function(e){
     let city = $("#city-name").val();
     console.log(`city:${city}`)
     searchWeather(city)
+    addWeatherData(city)
 })
+
+function addWeatherData(temp, humidity, windspeed, uvi){
+    $("#current-temperature").text(temp);
+    $("#current-humidity").text(humidity);
+    $("#current-wind-speed").text(windspeed + " mph");
+    $("#current-uvi").text(uvi);
+
+
+}
 
 function searchWeather(city){
     // consult api with name   
@@ -32,15 +42,6 @@ function searchWeather(city){
             console.log(data)
             
             // check
-        }
-}
-
-function addWeatherData(){
-            $("#current-temperature").text(data.main.temp);
-            $("#current-humidity").text(data.main.humidity);
-            $("#current-wind-speed").text(data.main.windspeed + " mph");
-            $("#current-uvi").text(data.main.uvi);
-
-
-}
+        })
+    }
 });
