@@ -10,11 +10,10 @@
 // style
 // name to location, push location to local
 $(document).ready(function(){
-const timeCurrent = document.querySelector('time-current');
-const submitBtnEl = document.querySelector('#search-weather-btn')
-// add listner to submit button
-var weatherApiKey = "7a2db2f596eb6b607d917c5d588554f0";
-var apiAddress = //not necessary?
+const currentTemp = $('#current-temperature');
+const currentHumidity = $('#current-humidity');
+const currentWindSpeed = $('#current-wind-speed');
+const currentUvi = $('#current-uvi');
 
 
 $('#search-weather-btn').on('click', function(e){
@@ -27,10 +26,10 @@ $('#search-weather-btn').on('click', function(e){
 })
 
 function addWeatherData(temp, humidity, windspeed, uvi){
-    $("#current-temperature").text(temp);
-    $("#current-humidity").text(humidity);
-    $("#current-wind-speed").text(windspeed + " mph");
-    $("#current-uvi").text(uvi);
+    document.currentTemp.innerHtml = currentTemp;
+    currentHumidity.innerHtml(humidity);
+    $("#current-wind-speed").innerHtml(windspeed + " mph");
+    $("#current-uvi").innerHtml(uvi);
 
 
 }
