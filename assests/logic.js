@@ -17,7 +17,8 @@ var weatherApiKey = "7a2db2f596eb6b607d917c5d588554f0";
 var apiAddress = //not necessary?
 console.log('hello')
 
-$('#search-weather-btn').on('click', function(){
+$('#search-weather-btn').on('click', function(e){
+    e.preventDefault()
     console.log("click")
     let city = $("#city-name").val();
     console.log(`city:${city}`)
@@ -32,10 +33,6 @@ function searchWeather(city){
             // check return
         });
         
-}
-
-function weatherQuery(){
-    // consult weather api with location
 }
 
 });
