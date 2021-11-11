@@ -52,7 +52,15 @@ function weatherTitle(city){
 
 }
 
-
+function renderForecat(forecast){
+    let cards = reportContainer.children();
+    // iterate through cards
+    for(let i=0; i< cards.length; i++){
+        $(cards[i]).find("h3.day").text(moment(now).add(i+1, "d").format("dddd"));
+        $(cards[i]).find("span.forecast-temperature").text(forecast[i].temp.day);
+        $(cards[i]).find("span.forecast-humidity").text(forecast[i].humidity);
+    }
+}
 
 
 
